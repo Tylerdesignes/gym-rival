@@ -11,7 +11,7 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate:deploy": "prisma migrate deploy",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build"
+    "vercel-build": "prisma generate && if [ -n \"$DATABASE_URL\" ]; then prisma migrate deploy; else echo 'DATABASE_URL not set, skipping prisma migrate deploy'; fi && next build"
   },
   "dependencies": {
     "@prisma/client": "^6.16.1",
