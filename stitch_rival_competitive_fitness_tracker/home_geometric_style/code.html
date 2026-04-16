@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RIVAL | Performance Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#930200",
+                        "on-tertiary-fixed": "#1a1b22",
+                        "on-secondary-fixed-variant": "#454364",
+                        "outline-variant": "#5f3f3a",
+                        "surface-container": "#1e1d34",
+                        "secondary-fixed-dim": "#c5c3ea",
+                        "outline": "#af8781",
+                        "on-primary-container": "#fff6f5",
+                        "surface-container-low": "#1a1930",
+                        "tertiary": "#c6c6cf",
+                        "on-background": "#e3dffe",
+                        "primary-container": "#e50501",
+                        "surface-bright": "#38374f",
+                        "primary": "#ffb4a8",
+                        "surface-tint": "#ffb4a8",
+                        "tertiary-fixed": "#e2e1eb",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#2f2e46",
+                        "on-secondary-fixed": "#191836",
+                        "secondary-fixed": "#e3dfff",
+                        "on-secondary": "#2e2d4c",
+                        "on-surface-variant": "#e9bcb5",
+                        "surface-variant": "#33324a",
+                        "on-tertiary": "#2f3037",
+                        "tertiary-fixed-dim": "#c6c6cf",
+                        "on-tertiary-fixed-variant": "#45464e",
+                        "inverse-surface": "#e3dffe",
+                        "on-secondary-container": "#b4b1d7",
+                        "on-surface": "#e3dffe",
+                        "tertiary-container": "#71717a",
+                        "on-tertiary-container": "#f9f7ff",
+                        "surface": "#121127",
+                        "surface-container-highest": "#33324a",
+                        "on-error": "#690005",
+                        "surface-dim": "#121127",
+                        "secondary-container": "#454364",
+                        "secondary": "#c5c3ea",
+                        "on-primary": "#680100",
+                        "inverse-primary": "#c00200",
+                        "on-error-container": "#ffdad6",
+                        "background": "#121127",
+                        "surface-container-lowest": "#0c0b21",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "surface-container-high": "#29283f",
+                        "on-primary-fixed": "#410000",
+                        "primary-fixed": "#ffdad4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #121127;
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+        .angle-accent {
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface select-none no-scrollbar">
+<!-- Top AppBar Shell -->
+<header class="fixed top-0 w-full z-50 h-16 bg-[#121127]/70 backdrop-blur-md flex justify-between items-center px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#E50501]" data-icon="bolt">bolt</span>
+<span class="text-2xl font-black italic text-[#E50501] tracking-widest font-['Space_Grotesk'] uppercase">RIVAL</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-secondary opacity-70" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close up portrait of a focused athlete with intense eyes and sharp cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLw_SDp-O7v6x51WGqC8Xavmzd86J46KUj3HfhrVHMmh-fN2keUELwY0JfpY9y1Sq-Xl_Cn-ccnRqLe752r8A1Kkv43yrdiB10-0ISzAvkTQ5dQVEu9nGRqguobSyQatKCNaTxhHsRkNxkNILaxca_gvPTmw40Z3nsh_g8dZ404NMY5zocjkvcpEJ4YNHBlekUvB87xZwMyHahj8BV7A8yPodoagvMuOi3CI1AhNqvRZRTyMvp62zIW8LXvdK8MJuZOUl4YL5V7ys"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32 px-6 max-w-5xl mx-auto space-y-8">
+<!-- Rank & Power Bento Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<!-- Current Rank -->
+<div class="md:col-span-8 bg-surface-container p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 -mr-16 -mt-16 rotate-45 transition-transform group-hover:scale-110"></div>
+<div class="flex flex-col h-full justify-between">
+<div>
+<p class="font-headline font-bold text-xs tracking-[0.2em] text-secondary/60 uppercase mb-2">CURRENT DIVISION</p>
+<h2 class="font-headline font-black text-6xl italic text-on-surface tracking-tighter">GOLD</h2>
+</div>
+<div class="mt-8">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label font-bold text-sm text-primary">840 RP TO DIAMOND</span>
+<span class="font-label text-xs text-secondary/40">72%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-on-primary-fixed-variant w-[72%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Power Score -->
+<div class="md:col-span-4 bg-surface-container-low p-6 flex flex-col items-center justify-center text-center border-l-2 border-primary-container/20">
+<p class="font-headline font-bold text-xs tracking-[0.2em] text-secondary/60 uppercase mb-4">POWER SCORE</p>
+<div class="relative">
+<span class="font-headline font-black text-6xl text-on-surface">92.4</span>
+<span class="absolute -top-1 -right-4 text-primary text-xl font-black">↑</span>
+</div>
+<p class="font-label text-xs text-secondary/40 mt-2">ELITE TIER PERFORMANCE</p>
+</div>
+</section>
+<!-- Stats Quick Look -->
+<section class="flex flex-wrap gap-4">
+<div class="bg-surface-container-high px-6 py-4 flex-1 min-w-[140px] flex items-center justify-between border-b-2 border-primary-container">
+<div>
+<p class="text-[10px] font-headline font-black text-secondary/50 tracking-widest uppercase">STREAK</p>
+<p class="text-2xl font-headline font-bold text-on-surface">12 DAYS</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="bg-surface-container-high px-6 py-4 flex-1 min-w-[140px] flex items-center justify-between">
+<div>
+<p class="text-[10px] font-headline font-black text-secondary/50 tracking-widest uppercase">TOTAL WORKOUTS</p>
+<p class="text-2xl font-headline font-bold text-on-surface">148</p>
+</div>
+<span class="material-symbols-outlined text-secondary/40 text-3xl" data-icon="fitness_center">fitness_center</span>
+</div>
+</section>
+<!-- AI Recommended Workouts -->
+<section>
+<div class="flex items-baseline justify-between mb-6">
+<h3 class="font-headline font-black text-xl tracking-tighter uppercase">AI RECOMMENDATIONS</h3>
+<div class="h-px flex-1 mx-4 bg-surface-container-highest"></div>
+<span class="text-[10px] font-bold text-secondary/40 font-headline uppercase tracking-widest">BASED ON RECENT CARDIO</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Workout Card 1 -->
+<div class="group relative aspect-[16/9] overflow-hidden bg-surface-container-lowest">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500" data-alt="dramatic wide shot of a powerful weightlifter in a dark industrial gym setting with high contrast shadows and red ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByJUD6puSf_AKDbv3m4rvQHNS4q-cUpQflew8mDknHr-AeUtPpPTIWgBZR3cOK22XUE9yAuQuHoNgClIzCNcTiOKhvC-TLL4bmVXxfOrI4Mj_kJfp7a3MXL6YQ7YB6MXvP2lYhYCzWAMepj8BtBu7hKL9Or-xH8UYYb5Xvk1q4nZ4BaTxitzQWXqEnQwKSbho3LRuQ9-9VX2XwQBinW6_9oSvwgTfjXW4AjMzSHOm0flSW0KhQRXuQ3I-ShLNRPbb7COHYqkgDBQ0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-primary-container px-2 py-0.5 text-[10px] font-black uppercase tracking-tighter text-on-primary-container">INTENSE</span>
+<span class="text-[10px] font-bold text-secondary/60 uppercase">65 MIN</span>
+</div>
+<h4 class="font-headline font-bold text-2xl tracking-tighter leading-none">HYPERTROPHY: UPPER BODY</h4>
+</div>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<!-- Workout Card 2 -->
+<div class="group relative aspect-[16/9] overflow-hidden bg-surface-container-lowest">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500" data-alt="minimalist overhead shot of yoga equipment on a dark sleek surface with futuristic blue and red lighting reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfTmgcpwFUxdH71WR3D_yn9Uyss6-zPnJsh-mAHSo7UnKLxzYLKW-a0yxeTJzYRovXDS2VJlMuiZ_qbwajPdcSIXIZw6KBcE95klFGVVyB-Go4-_Qoz_navV-ITrFVuH9aT2EyIpyGk288BHsLBvXGJ78Rw8rsNdG9gFoiDRex1Ul9RDZZi1P3Yf6mAQm-TEI2jTAnkG8ZQOldgl347o9AVu95plbGjJibJPkod4GrlHD-rJUzpXG-rJQ1SEiRBoRR1AIUrxvJoa4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-surface-container-highest px-2 py-0.5 text-[10px] font-black uppercase tracking-tighter text-on-surface">RECOVERY</span>
+<span class="text-[10px] font-bold text-secondary/60 uppercase">20 MIN</span>
+</div>
+<h4 class="font-headline font-bold text-2xl tracking-tighter leading-none">ACTIVE RECOVERY</h4>
+</div>
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Rival Status -->
+<section class="bg-surface-container p-6 flex flex-col md:flex-row gap-6 items-center">
+<div class="relative">
+<div class="w-24 h-24 bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0" data-alt="portrait of a muscular elite athlete with a determined expression, dark background, cinematic red lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpFMl0s9EyrBMqK3EO6S42uLMFdaIcJIUULypzGivIjKu9f_S1VFrgto-ptDlpkPlJ9AnB0RAvqTtmbUEJu4gKn3BBWVmrkhnzMsun7TETcWKxkgblPhMRmtH6VaKH4rXlTTC6sB7JBlNbrlv2mKSJeJVjk-yYvd_pae4x-MendujY-1ZnoqI-A4M0Ks9d1tM9Q-a7rKnQa68lksys23mwR0wr1HxQ-QoDvmEHDufcU1fHNTiCtEwmB7341hyfwna8WbQm2wKNpuc"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-primary-container px-2 py-1 font-headline font-black text-xs italic">04</div>
+</div>
+<div class="flex-1 text-center md:text-left">
+<p class="text-[10px] font-headline font-bold text-primary tracking-widest uppercase mb-1">CURRENT RIVAL</p>
+<h4 class="text-3xl font-headline font-black italic tracking-tighter uppercase mb-2">ALEX RIVERA</h4>
+<div class="flex flex-wrap justify-center md:justify-start gap-4">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold text-secondary/40 uppercase">STATUS</span>
+<span class="text-xs font-bold text-on-surface uppercase">ELITE RIVAL</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold text-secondary/40 uppercase">GAP</span>
+<span class="text-xs font-bold text-error uppercase">-240 RP</span>
+</div>
+</div>
+</div>
+<button class="bg-surface-container-highest px-8 py-3 text-xs font-black uppercase tracking-widest border-2 border-primary-container/20 hover:border-primary-container transition-colors">CHALLENGE</button>
+</section>
+<!-- FAB / Primary Action -->
+<div class="fixed bottom-24 right-6 z-40">
+<button class="bg-gradient-to-br from-primary-container to-on-primary-fixed-variant p-5 shadow-2xl flex items-center gap-3 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-white font-bold" data-icon="add">add</span>
+<span class="font-headline font-black text-xs uppercase tracking-widest text-white pr-2">LOG WORKOUT</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 h-20 bg-[#121127]/80 backdrop-blur-lg flex justify-around items-center bg-gradient-to-t from-[#0c0b21] to-transparent shadow-[0_-40px_40px_rgba(13,12,34,0.08)]">
+<div class="flex items-center justify-center text-[#E50501] border-b-4 border-[#E50501] h-full w-full bg-gradient-to-t from-[#E50501]/5 to-transparent active:brightness-125 transition-all duration-200">
+<span class="material-symbols-outlined text-2xl" data-icon="home_max" style="font-variation-settings: 'FILL' 1;">home_max</span>
+</div>
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="fitness_center">fitness_center</span>
+</div>
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="leaderboard">leaderboard</span>
+</div>
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="monitoring">monitoring</span>
+</div>
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RIVAL - Community Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#2e2d4c",
+                        "primary-container": "#e50501",
+                        "primary": "#ffb4a8",
+                        "on-error": "#690005",
+                        "surface": "#121127",
+                        "surface-container-low": "#1a1930",
+                        "tertiary-fixed": "#e2e1eb",
+                        "surface-container-highest": "#33324a",
+                        "on-surface": "#e3dffe",
+                        "on-secondary-container": "#b4b1d7",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e3dffe",
+                        "inverse-surface": "#e3dffe",
+                        "surface-bright": "#38374f",
+                        "secondary-container": "#454364",
+                        "on-secondary-fixed": "#191836",
+                        "secondary": "#c5c3ea",
+                        "surface-container": "#1e1d34",
+                        "on-tertiary-fixed": "#1a1b22",
+                        "on-primary-fixed-variant": "#930200",
+                        "on-tertiary-fixed-variant": "#45464e",
+                        "on-primary-fixed": "#410000",
+                        "on-primary-container": "#fff6f5",
+                        "surface-dim": "#121127",
+                        "surface-container-high": "#29283f",
+                        "surface-variant": "#33324a",
+                        "on-tertiary": "#2f3037",
+                        "inverse-primary": "#c00200",
+                        "background": "#121127",
+                        "tertiary": "#c6c6cf",
+                        "surface-tint": "#ffb4a8",
+                        "on-primary": "#680100",
+                        "primary-fixed": "#ffdad4",
+                        "on-tertiary-container": "#f9f7ff",
+                        "on-surface-variant": "#e9bcb5",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#71717a",
+                        "outline": "#af8781",
+                        "inverse-on-surface": "#2f2e46",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0c0b21",
+                        "on-secondary-fixed-variant": "#454364",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "tertiary-fixed-dim": "#c6c6cf",
+                        "secondary-fixed": "#e3dfff",
+                        "secondary-fixed-dim": "#c5c3ea",
+                        "outline-variant": "#5f3f3a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #121127;
+            font-family: 'Inter', sans-serif;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 h-16 bg-[#121127]/70 backdrop-blur-md flex justify-between items-center px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#E50501]" data-icon="bolt">bolt</span>
+<span class="text-2xl font-black italic text-[#E50501] tracking-widest font-['Space_Grotesk'] uppercase">RIVAL</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-secondary opacity-70" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close up portrait of a focused athlete with intense eyes and sharp cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUMUG9REl5H-peTsVIFOSnODCeabtKT4j8yOQ6ilSss-LifKAS2-gqdliyJy_INMaSFyyhSWXkkpkl3CQ69OEohnTwSHSor098Z6gts9i3LcG-79wkl0HNirFCbpxsbp9z1KLQ3-Hq9lu2pHkpa9CtBn_fpBW6aOubPx5uUNWZdJoXQPM98TYnTxjhfuNHyyYjENn139xQfK8yU5pMzd-r69Koa_-p0q3Cwns7oGOVEH1KLLLXKgUAFR29NfTkKevte-qJrxqQYjY"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-24 min-h-screen max-w-2xl mx-auto px-4 md:px-0">
+<!-- Section Header -->
+<header class="mb-12 mt-6">
+<h1 class="font-headline font-black text-5xl uppercase tracking-tighter leading-none">
+                Velocity <span class="text-primary-container">Feed</span>
+</h1>
+<p class="font-body text-secondary mt-2 uppercase tracking-widest text-xs opacity-70">Global activity stream // session 4.2.0</p>
+</header>
+<!-- Feed List -->
+<div class="flex flex-col space-y-12">
+<!-- Post Item 1: Workout Summary -->
+<article class="group">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center">
+<img alt="Marcus" class="w-full h-full object-cover" data-alt="Headshot of a male athlete with grit and sweat, high contrast black and white lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcNen1BKm-CPwEscnWhTVyfdldvP8vuPg-cp26WZr1zcYwqqw8lSA0A-WezX7PKS_e7ByqTMlKjo4mg1kQj-8Srlci6tHHKQRwGo6d34PxVjw3sfnWaGFsoDlghdL8eOPGWWq-EF_sYttAhl_N1HKJoUN2hdl0MU00jJ8_xGQrLGWjZ9nzCm1X69vavCRCx9kMuOUDapUiCZASdXOJSTHkQ0eZV1C8xOfepr9sG9QxP6kAxOVUJo_BYyRtXNG5SMYEyM8-MuqwQe8"/>
+</div>
+<div>
+<h3 class="font-headline font-bold uppercase text-sm tracking-tight">Marcus Thorne</h3>
+<p class="font-body text-[10px] text-secondary opacity-60 uppercase tracking-widest">34 MINS AGO</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-40">more_horiz</span>
+</div>
+<div class="bg-surface-container-low p-6 border-l-4 border-primary-container relative overflow-hidden">
+<div class="relative z-10">
+<p class="font-headline text-2xl font-medium tracking-tight mb-4">
+                            Just finished an <span class="text-primary-container italic font-black">Olympic Session</span>. Heavy triples at 140kg.
+                        </p>
+<div class="grid grid-cols-3 gap-1 mb-6">
+<div class="bg-surface-container p-3">
+<p class="text-[10px] text-secondary uppercase tracking-tighter mb-1">Volume</p>
+<p class="font-headline font-bold text-lg">12.4k kg</p>
+</div>
+<div class="bg-surface-container p-3">
+<p class="text-[10px] text-secondary uppercase tracking-tighter mb-1">Duration</p>
+<p class="font-headline font-bold text-lg">82m</p>
+</div>
+<div class="bg-surface-container p-3">
+<p class="text-[10px] text-secondary uppercase tracking-tighter mb-1">Intensity</p>
+<p class="font-headline font-bold text-lg text-primary-container">High</p>
+</div>
+</div>
+</div>
+<!-- Subtle background graphic -->
+<div class="absolute top-0 right-0 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-6">
+<button class="flex items-center gap-2 hover:text-primary-container transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label font-bold text-xs">RECOGNIZE (12)</span>
+</button>
+<button class="flex items-center gap-2 hover:text-secondary transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-sm">chat_bubble</span>
+<span class="font-label font-bold text-xs text-secondary opacity-70">COMMENT (4)</span>
+</button>
+</div>
+</article>
+<!-- Post Item 2: Visual Content -->
+<article class="group">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center">
+<img alt="Elena" class="w-full h-full object-cover" data-alt="Female track athlete in a starting block, dramatic morning light, high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkPxnJcVnQ5oYdYcUVuYeWmb5PUTJEJ1GuJaVg0S7thYCR5IVRRsR10s09XlvmGMJ9qgMcE6GeRuQI5Wf3BMukEUOYlc9_Yl-QqP1VCz2PqZnksl7t9N_Lcc14nXBrYklACWGGxqNTcBYCccpR8HWqI-wC8tRVHzDKmNSu_J1q9ChsuMvKxG4hogmBfyLQrsOTHAHX3oednJWab0cHEdC9g76ChvBTbm7B77Mv_3tK7a9eDH3b4Dn3InFuuYlPD991dQbJmFOpD4s"/>
+</div>
+<div>
+<h3 class="font-headline font-bold uppercase text-sm tracking-tight">Elena Vance</h3>
+<p class="font-body text-[10px] text-secondary opacity-60 uppercase tracking-widest">2 HOURS AGO</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-40">more_horiz</span>
+</div>
+<div class="relative bg-surface-container aspect-video overflow-hidden mb-4">
+<img alt="Training" class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-500" data-alt="Shadowy gym interior with light beams hitting a chalky barbell on the floor, atmospheric smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ9aKN2o-cUA1aPmq2T6d2JsfpLEXFfDL0y0qLXNRCSUQq61m-08imbYnXrzx1cq2Y3uT4ZbuqhSRq9PuwrSVuoVtOZqNWkmbIa9nPhSNjMSTqUatayHfNz4wiQPFAaVPVlYDQRY8yMWB9HBSqowavdHgDkaDIfwylUUo7FmaPaYbB5sVGOq-yvxicmTRTA1HyiYO5Kz5BO6ikIqIwuzViLlx72CyXBgQRk4qYuOZe9E2PpwPlvjdVJrA8Y3jlrWYDZsgWfTb6ZsQ"/>
+<div class="absolute bottom-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 font-headline font-black text-xs uppercase tracking-tighter">
+                        Interval Sprint Session
+                    </div>
+</div>
+<p class="font-body text-sm text-secondary leading-relaxed mb-4">
+                    No excuses. The humidity was brutal but the splits were consistent. Rival leaderboard, I'm coming for the top spot.
+                </p>
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-primary-container font-bold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label text-xs">RECOGNIZED</span>
+</button>
+<button class="flex items-center gap-2 hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-sm">chat_bubble</span>
+<span class="font-label font-bold text-xs text-secondary opacity-70">COMMENT (28)</span>
+</button>
+</div>
+</article>
+<!-- Post Item 3: Personal Record -->
+<article class="group">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center">
+<img alt="Kael" class="w-full h-full object-cover" data-alt="Muscular male athlete screaming during a heavy lift, intense shadows, cinematic gritty style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV2SpilIcgg0qKvjFMrOXPlzwu7wl6BkmCjSnlOnj5prDxGsCq8tSWihRXIIbu7EGtwL6MSFkUEvxBmrfDqFe5R8XHSKXoYchmaCbBifI_baEOiP-ajwuennbQDPI1PeU2OAKaeRT8hY8jusjb9lG3KYexp0WyfkbRVmPjRsTpj6vwvpg3GO89GiP9hCdljNH6pZiCkobLWbR4WdV1syUe0A3cTegEUsho7Fku2Q_N7JObFMvi9HTZtpc8vwRReGj2anfSUxzPyM8"/>
+</div>
+<div>
+<h3 class="font-headline font-bold uppercase text-sm tracking-tight">Kael Jaxon</h3>
+<p class="font-body text-[10px] text-secondary opacity-60 uppercase tracking-widest">5 HOURS AGO</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-40">more_horiz</span>
+</div>
+<div class="bg-gradient-to-br from-primary-container to-on-primary-fixed-variant p-8 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-white text-4xl mb-2" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<h2 class="font-headline font-black text-white text-3xl uppercase tracking-tighter italic">NEW PERSONAL RECORD</h2>
+<p class="font-body text-on-primary-container uppercase tracking-widest text-xs mt-2">Deadlift Cluster</p>
+<div class="mt-6 text-6xl font-headline font-black text-white tracking-tighter">
+                        245<span class="text-2xl ml-1">KG</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-6">
+<button class="flex items-center gap-2 hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm">military_tech</span>
+<span class="font-label font-bold text-xs">RECOGNIZE (89)</span>
+</button>
+<button class="flex items-center gap-2 hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-sm">chat_bubble</span>
+<span class="font-label font-bold text-xs text-secondary opacity-70">COMMENT (15)</span>
+</button>
+</div>
+</article>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-gradient-to-br from-primary-container to-on-primary-fixed-variant flex items-center justify-center shadow-2xl active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined text-white text-3xl">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 h-20 bg-[#121127]/80 backdrop-blur-lg flex justify-around items-center bg-gradient-to-t from-[#0c0b21] to-transparent shadow-[0_-40px_40px_rgba(13,12,34,0.08)]">
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="home_max">home_max</span>
+</div>
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="fitness_center">fitness_center</span>
+</div>
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="leaderboard">leaderboard</span>
+</div>
+<!-- Feed Active -->
+<div class="flex items-center justify-center text-[#E50501] border-b-4 border-[#E50501] h-full w-full bg-gradient-to-t from-[#E50501]/5 to-transparent active:brightness-125 transition-all duration-200">
+<span class="material-symbols-outlined text-2xl" data-icon="monitoring" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+</div>
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+</div>
+</nav>
+</body></html>

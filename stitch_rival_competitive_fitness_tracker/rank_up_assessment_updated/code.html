@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RIVAL - RANK PROMOTED</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#2e2d4c",
+                        "primary-container": "#e50501",
+                        "primary": "#ffb4a8",
+                        "on-error": "#690005",
+                        "surface": "#121127",
+                        "surface-container-low": "#1a1930",
+                        "tertiary-fixed": "#e2e1eb",
+                        "surface-container-highest": "#33324a",
+                        "on-surface": "#e3dffe",
+                        "on-secondary-container": "#b4b1d7",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e3dffe",
+                        "inverse-surface": "#e3dffe",
+                        "surface-bright": "#38374f",
+                        "secondary-container": "#454364",
+                        "on-secondary-fixed": "#191836",
+                        "secondary": "#c5c3ea",
+                        "surface-container": "#1e1d34",
+                        "on-tertiary-fixed": "#1a1b22",
+                        "on-primary-fixed-variant": "#930200",
+                        "on-tertiary-fixed-variant": "#45464e",
+                        "on-primary-fixed": "#410000",
+                        "on-primary-container": "#fff6f5",
+                        "surface-dim": "#121127",
+                        "surface-container-high": "#29283f",
+                        "surface-variant": "#33324a",
+                        "on-tertiary": "#2f3037",
+                        "inverse-primary": "#c00200",
+                        "background": "#121127",
+                        "tertiary": "#c6c6cf",
+                        "surface-tint": "#ffb4a8",
+                        "on-primary": "#680100",
+                        "primary-fixed": "#ffdad4",
+                        "on-tertiary-container": "#f9f7ff",
+                        "on-surface-variant": "#e9bcb5",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#71717a",
+                        "outline": "#af8781",
+                        "inverse-on-surface": "#2f2e46",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0c0b21",
+                        "on-secondary-fixed-variant": "#454364",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "tertiary-fixed-dim": "#c6c6cf",
+                        "secondary-fixed": "#e3dfff",
+                        "secondary-fixed-dim": "#c5c3ea",
+                        "outline-variant": "#5f3f3a"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-bg {
+            background: linear-gradient(135deg, #121127 0%, #1e1d34 100%);
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(229, 5, 1, 0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .diamond-shard {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden">
+<div class="kinetic-bg"></div>
+<!-- TopAppBar matched to COMPONENTS_8 -->
+<header class="fixed top-0 w-full z-50 h-16 bg-[#121127]/70 backdrop-blur-md flex justify-between items-center px-6">
+<div class="flex items-center gap-2 active:scale-95 duration-75">
+<span class="material-symbols-outlined text-[#E50501]" data-icon="bolt">bolt</span>
+<span class="text-2xl font-black italic text-[#E50501] tracking-widest font-['Space_Grotesk'] uppercase">RIVAL</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#c5c3ea] opacity-70 hover:bg-[#E50501]/10 transition-colors duration-150 p-2 rounded-full" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant/30 active:scale-95 duration-75">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="Close up of a focused elite athlete with high contrast lighting and dark mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlmUQNXAdA40LA7MdouepAcVojczWNo9QT2jot20pl0dsl_tPsV6-vepAQcHFQDwkNCSL47qwJlAnErE1lVZlAjFqyzCYXPHMIu2IDXIIGQ9_8F993fb3KvxZDLrGcGzV-pGhoiQTawHYrYXEpJJ-vOqd3-bM8QDZoyL2Uj3P8jMwc1CWHSWvlSXw1AtZcn-knC6BBcniuZY76xJEKh4nEuiQ_GGzVjlJ_CyS7z-jdvZANLwLy8OXjKogIJxFZ2dsA4s6HMwA0BB4"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Section: Rank Promotion -->
+<section class="relative mb-16 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/20 to-transparent pointer-events-none"></div>
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<!-- Visual Centerpiece: The Evolution -->
+<div class="relative w-full md:w-1/2 aspect-square flex items-center justify-center">
+<!-- Geometric Shards -->
+<div class="absolute inset-0 grid grid-cols-4 grid-rows-4 opacity-20 pointer-events-none">
+<div class="border-r border-b border-outline-variant/30"></div>
+<div class="border-b border-outline-variant/30"></div>
+<div class="border-r border-b border-outline-variant/30"></div>
+<div class="border-b border-outline-variant/30"></div>
+</div>
+<!-- Rank Progression -->
+<div class="flex items-center gap-8 z-10">
+<div class="flex flex-col items-center opacity-40 grayscale group">
+<div class="w-24 h-24 bg-surface-container flex items-center justify-center border-2 border-outline-variant">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<span class="mt-2 font-headline font-bold text-xs tracking-widest">GOLD</span>
+</div>
+<div class="h-[2px] w-12 bg-primary-container"></div>
+<div class="flex flex-col items-center relative">
+<div class="absolute -inset-8 bg-primary-container/10 blur-3xl rounded-full"></div>
+<div class="w-40 h-40 bg-primary-container flex items-center justify-center relative shadow-[0_0_60px_rgba(229,5,1,0.4)]">
+<span class="material-symbols-outlined text-7xl text-on-primary-container" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<!-- Geometric Accent -->
+<div class="absolute -top-2 -right-2 w-8 h-8 bg-white/20 backdrop-blur-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-white">bolt</span>
+</div>
+</div>
+<span class="mt-4 font-headline font-black text-2xl tracking-tighter text-primary-container italic">DIAMOND</span>
+</div>
+</div>
+</div>
+<!-- Text Content -->
+<div class="w-full md:w-1/2 flex flex-col items-start">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 font-label text-[10px] font-extrabold tracking-[0.2em] mb-4">
+                        ASSESSMENT COMPLETE
+                    </span>
+<h1 class="font-headline text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-on-surface mb-6">
+                        RANK <br/> <span class="text-primary-container">PROMOTED</span>
+</h1>
+<p class="text-secondary max-w-sm font-body text-sm leading-relaxed mb-8">
+                        Performance metrics verified. Your output has exceeded the current bracket threshold. Welcome to the elite tier, operative.
+                    </p>
+<div class="flex gap-4 w-full">
+<button class="flex-1 bg-gradient-to-r from-primary-container to-on-primary-fixed-variant px-8 py-4 font-label font-bold text-xs uppercase tracking-widest text-on-primary-container transition-transform active:scale-95">
+                            Claim Rewards
+                        </button>
+<button class="flex-1 bg-surface-container-highest border border-outline-variant/15 px-8 py-4 font-label font-bold text-xs uppercase tracking-widest text-secondary transition-colors hover:bg-surface-bright">
+                            Share Progress
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Next Rank Tracker Section -->
+<section class="mb-16 bg-surface-container-lowest border-l-4 border-primary-container p-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 -mr-16 -mt-16 rotate-45"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="font-label text-[10px] uppercase tracking-[0.3em] text-primary-container font-black block mb-2">TARGET ACQUISITION</span>
+<h2 class="font-headline text-4xl font-black text-on-surface uppercase tracking-tighter">Road to Master</h2>
+</div>
+<div class="text-right">
+<span class="font-headline text-2xl font-bold text-on-surface">1,450 <span class="text-xs text-secondary opacity-50 uppercase tracking-widest ml-1">XP LEFT</span></span>
+</div>
+</div>
+<div class="relative h-4 bg-surface-container-highest overflow-hidden">
+<div class="absolute inset-0 bg-primary-container/10"></div>
+<div class="h-full bg-gradient-to-r from-primary-container to-[#ffb4a8] relative" style="width: 78%">
+<div class="absolute top-0 right-0 bottom-0 w-1 bg-white shadow-[0_0_15px_#fff]"></div>
+</div>
+</div>
+<div class="flex justify-between mt-4">
+<div class="flex items-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<span class="font-label text-[10px] font-bold uppercase tracking-widest">Diamond III</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label text-[10px] font-bold uppercase tracking-widest text-primary-container">Master Rank</span>
+<span class="material-symbols-outlined text-sm text-primary-container" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high p-4 border border-outline-variant/10">
+<span class="font-label text-[10px] text-secondary opacity-50 uppercase tracking-widest block mb-1">Projected Arrival</span>
+<span class="font-headline font-bold text-on-surface uppercase tracking-tighter italic">48 HOURS</span>
+</div>
+<div class="bg-surface-container-high p-4 border border-outline-variant/10">
+<span class="font-label text-[10px] text-secondary opacity-50 uppercase tracking-widest block mb-1">Win Streak Req.</span>
+<span class="font-headline font-bold text-primary-container uppercase tracking-tighter italic">3 SESSIONS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Metrics Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+<!-- Large Metric: Velocity -->
+<div class="md:col-span-2 bg-surface-container-low p-8 relative overflow-hidden flex flex-col justify-between">
+<div class="relative z-10">
+<span class="font-label text-[10px] uppercase tracking-widest text-secondary opacity-50 block mb-1">Peak Intensity</span>
+<h3 class="font-headline text-5xl font-bold tracking-tighter text-on-surface">98.4<span class="text-xl text-primary-container font-medium ml-1">%</span></h3>
+</div>
+<div class="h-32 w-full mt-8 relative z-10 flex items-end gap-1">
+<div class="bg-primary-container/20 w-full h-[30%]"></div>
+<div class="bg-primary-container/40 w-full h-[50%]"></div>
+<div class="bg-primary-container/60 w-full h-[80%]"></div>
+<div class="bg-primary-container/80 w-full h-[65%]"></div>
+<div class="bg-primary-container w-full h-[100%]"></div>
+<div class="bg-primary-container/70 w-full h-[85%]"></div>
+<div class="bg-primary-container/50 w-full h-[60%]"></div>
+</div>
+<div class="absolute right-0 bottom-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-[120px]">show_chart</span>
+</div>
+</div>
+<!-- Stats Column -->
+<div class="bg-surface-container p-8 flex flex-col justify-center gap-8">
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-secondary opacity-50 block mb-1">Max Reps (Heavy)</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-4xl font-bold text-on-surface">42</span>
+<span class="text-primary-container text-xs font-bold font-label uppercase">+12%</span>
+</div>
+</div>
+<div class="w-full h-px bg-outline-variant/10"></div>
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-secondary opacity-50 block mb-1">Recovery Time</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-4xl font-bold text-on-surface">0:45</span>
+<span class="text-secondary text-xs font-bold font-label uppercase">Sect. B</span>
+</div>
+</div>
+</div>
+<!-- Focus Metric -->
+<div class="bg-surface-container p-8 border-l-4 border-primary-container flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary-container text-3xl">timer</span>
+<div>
+<h3 class="font-headline text-3xl font-bold text-on-surface mt-4 uppercase tracking-tighter">Velocity Score</h3>
+<p class="text-secondary text-xs font-label mt-2 leading-relaxed opacity-70">
+                        Top 2% of the Diamond Tier global leaderboard.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Detailed Breakdown -->
+<section class="bg-surface-container-lowest p-0 relative overflow-hidden border border-outline-variant/5">
+<div class="flex flex-col md:flex-row">
+<div class="w-full md:w-1/3 h-64 md:h-auto overflow-hidden grayscale contrast-125">
+<img alt="Training Visual" class="w-full h-full object-cover opacity-60" data-alt="Gritty shot of industrial gym equipment in a dark warehouse setting with harsh rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuIje_vVF3P5lA0oXGlHoU6PL71rLMtPOYpfwoevJZ92_wZUhe0y_Myb_RofY-5SeqMnth8fikBv-Ka1FSqIbaffxOTneyh5-VOcfpvTkFRl9-sFOgys-jBzxOqsjkBW8_SGQQXd17ynNlzZJd8XruGZayEHd-VG9IVtMY5BYDrg1obMGF4yXkwI_iobqllLzIKrRC5-pRyPQhjj8DyTYrlSxtPdlT80C4YAI-ojREw9nwXipmgBnG2rP0m7YvRhtlryd9QR7uyGE"/>
+</div>
+<div class="w-full md:w-2/3 p-12">
+<h4 class="font-headline text-xl font-bold uppercase tracking-widest mb-8 text-on-surface">Tier Comparison</h4>
+<div class="space-y-6">
+<div class="flex justify-between items-center group">
+<span class="font-label text-xs uppercase tracking-widest text-secondary group-hover:text-primary-container transition-colors">Anaerobic Capacity</span>
+<div class="flex-1 mx-8 h-[2px] bg-outline-variant/20 relative">
+<div class="absolute left-0 top-0 h-full bg-secondary opacity-30" style="width: 70%"></div>
+<div class="absolute left-0 top-0 h-full bg-primary-container shadow-[0_0_10px_#e50501]" style="width: 92%"></div>
+</div>
+<span class="font-headline font-bold text-on-surface text-lg">92</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="font-label text-xs uppercase tracking-widest text-secondary group-hover:text-primary-container transition-colors">Power Output</span>
+<div class="flex-1 mx-8 h-[2px] bg-outline-variant/20 relative">
+<div class="absolute left-0 top-0 h-full bg-secondary opacity-30" style="width: 65%"></div>
+<div class="absolute left-0 top-0 h-full bg-primary-container shadow-[0_0_10px_#e50501]" style="width: 88%"></div>
+</div>
+<span class="font-headline font-bold text-on-surface text-lg">88</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="font-label text-xs uppercase tracking-widest text-secondary group-hover:text-primary-container transition-colors">Structural Integrity</span>
+<div class="flex-1 mx-8 h-[2px] bg-outline-variant/20 relative">
+<div class="absolute left-0 top-0 h-full bg-secondary opacity-30" style="width: 80%"></div>
+<div class="absolute left-0 top-0 h-full bg-primary-container shadow-[0_0_10px_#e50501]" style="width: 95%"></div>
+</div>
+<span class="font-headline font-bold text-on-surface text-lg">95</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar matched to COMPONENTS_8 (Icons only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 h-20 bg-[#121127]/80 backdrop-blur-lg flex justify-around items-center bg-gradient-to-t from-[#0c0b21] to-transparent shadow-[0_-40px_40px_rgba(13,12,34,0.08)]">
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="home_max">home_max</span>
+</div>
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="fitness_center">fitness_center</span>
+</div>
+<div class="flex items-center justify-center text-[#E50501] border-b-4 border-[#E50501] h-full w-full bg-gradient-to-t from-[#E50501]/5 to-transparent active:brightness-125 transition-all duration-200">
+<span class="material-symbols-outlined text-2xl" data-icon="leaderboard" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+</div>
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="monitoring">monitoring</span>
+</div>
+<div class="flex items-center justify-center text-[#c5c3ea] opacity-60 h-full w-full hover:bg-[#33324a] transition-all duration-200 active:brightness-125">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+</div>
+</nav>
+</body></html>

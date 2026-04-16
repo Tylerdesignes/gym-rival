@@ -1,0 +1,174 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AppUser {
+  id                 String               @id
+  name               String
+  age                Int
+  gender             String
+  weightKg           Decimal              @db.Decimal(6, 2)
+  heightCm           Decimal              @db.Decimal(6, 2)
+  experienceLevel    String
+  trainingTrack      String
+  readinessScore     Int
+  primaryGoal        String
+  availableEquipment Json                 @default("[]")
+  constraints        Json                 @default("[]")
+  assessments        BaselineAssessment[]
+  workoutPlans       WorkoutPlan[]
+  workoutLogs        WorkoutLog[]
+  progressMetric     ProgressMetric?
+  friendships        Friendship[]         @relation("FriendshipUser")
+  friendedBy         Friendship[]         @relation("FriendshipFriend")
+  challengesStarted  Challenge[]          @relation("ChallengeChallenger")
+  challengesReceived Challenge[]          @relation("ChallengeOpponent")
+  challengesWon      Challenge[]          @relation("ChallengeWinner")
+
+  @@map("app_user")
+}
+
+model BaselineAssessment {
+  id                  String   @id
+  userId              String   @map("user_id")
+  createdAt           DateTime @default(now()) @map("created_at")
+  trainingDaysPerWeek Int      @map("training_days_per_week")
+  recoveryScore       Int      @map("recovery_score")
+  sleepHours          Decimal  @db.Decimal(4, 1) @map("sleep_hours")
+  stressLevel         Int      @map("stress_level")
+  movementLimitations Json     @default("[]") @map("movement_limitations")
+  musclePriorities    Json     @default("[]") @map("muscle_priorities")
+  summary             String
+  user                AppUser  @relation(fields: [userId], references: [id])
+
+  @@map("baseline_assessment")
+}
+
+model WorkoutPlan {
+  id               String           @id
+  userId           String           @map("user_id")
+  name             String
+  source           String
+  focus            String
+  daysPerWeek      Int              @map("days_per_week")
+  progressionNotes Json             @default("[]") @map("progression_notes")
+  deloadRule       String           @map("deload_rule")
+  user             AppUser          @relation(fields: [userId], references: [id])
+  sessions         WorkoutSession[]
+  workoutLogs      WorkoutLog[]
+
+  @@map("workout_plan")
+}
+
+model WorkoutSession {
+  id            String            @id
+  workoutPlanId String            @map("workout_plan_id")
+  dayLabel      String            @map("day_label")
+  name          String
+  focus         String
+  workoutPlan   WorkoutPlan       @relation(fields: [workoutPlanId], references: [id], onDelete: Cascade)
+  exercises     PlannedExercise[]
+  workoutLogs   WorkoutLog[]
+
+  @@map("workout_session")
+}
+
+model PlannedExercise {
+  id              String         @id
+  workoutSessionId String        @map("workout_session_id")
+  name            String
+  sets            Int
+  targetReps      String         @map("target_reps")
+  targetRpe       Decimal        @db.Decimal(4, 1) @map("target_rpe")
+  progressionRule String         @map("progression_rule")
+  workoutSession  WorkoutSession @relation(fields: [workoutSessionId], references: [id], onDelete: Cascade)
+
+  @@map("planned_exercise")
+}
+
+model WorkoutLog {
+  id         String      @id
+  userId     String      @map("user_id")
+  workoutId  String      @map("workout_id")
+  sessionId  String      @map("session_id")
+  exerciseId String      @map("exercise_id")
+  createdAt  DateTime    @default(now()) @map("created_at")
+  user       AppUser     @relation(fields: [userId], references: [id])
+  workout    WorkoutPlan @relation(fields: [workoutId], references: [id])
+  session    WorkoutSession @relation(fields: [sessionId], references: [id])
+  sets       LoggedSet[]
+
+  @@map("workout_log")
+}
+
+model LoggedSet {
+  id           String     @id
+  workoutLogId String     @map("workout_log_id")
+  weightKg     Decimal    @db.Decimal(7, 2) @map("weight_kg")
+  reps         Int
+  rpe          Decimal    @db.Decimal(4, 1)
+  completed    Boolean    @default(true)
+  notes        String?
+  workoutLog   WorkoutLog @relation(fields: [workoutLogId], references: [id], onDelete: Cascade)
+
+  @@map("logged_set")
+}
+
+model BenchmarkStandard {
+  id                BigInt   @id @default(autoincrement())
+  lift              String
+  gender            String
+  bodyweightClassKg Decimal  @db.Decimal(6, 2) @map("bodyweight_class_kg")
+  sourceLabel       String   @map("source_label")
+  novice            Decimal  @db.Decimal(7, 2)
+  intermediate      Decimal  @db.Decimal(7, 2)
+  advanced          Decimal  @db.Decimal(7, 2)
+  elite             Decimal  @db.Decimal(7, 2)
+  olympian          Decimal  @db.Decimal(7, 2)
+
+  @@map("benchmark_standard")
+}
+
+model ProgressMetric {
+  userId            String  @id @map("user_id")
+  totalVolume       Decimal @db.Decimal(12, 2) @default(0) @map("total_volume")
+  completedSessions Int     @default(0) @map("completed_sessions")
+  consistencyScore  Int     @default(0) @map("consistency_score")
+  personalRecords   Json    @default("{}") @map("personal_records")
+  streakDays        Int     @default(0) @map("streak_days")
+  user              AppUser @relation(fields: [userId], references: [id])
+
+  @@map("progress_metric")
+}
+
+model Challenge {
+  id           String   @id
+  name         String
+  metric       String
+  challengerId String   @map("challenger_id")
+  opponentId   String   @map("opponent_id")
+  startsOn     DateTime @db.Date @map("starts_on")
+  endsOn       DateTime @db.Date @map("ends_on")
+  status       String
+  winnerId     String?  @map("winner_id")
+  challenger   AppUser  @relation("ChallengeChallenger", fields: [challengerId], references: [id])
+  opponent     AppUser  @relation("ChallengeOpponent", fields: [opponentId], references: [id])
+  winner       AppUser? @relation("ChallengeWinner", fields: [winnerId], references: [id])
+
+  @@map("challenge")
+}
+
+model Friendship {
+  userId   String  @map("user_id")
+  friendId String  @map("friend_id")
+  user     AppUser @relation("FriendshipUser", fields: [userId], references: [id])
+  friend   AppUser @relation("FriendshipFriend", fields: [friendId], references: [id])
+
+  @@id([userId, friendId])
+  @@map("friendship")
+}

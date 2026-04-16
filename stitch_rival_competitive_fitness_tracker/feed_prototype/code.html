@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#e3dffe",
+                        "outline-variant": "#5f3f3a",
+                        "on-tertiary-fixed": "#1a1b22",
+                        "on-surface": "#e3dffe",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e2e1eb",
+                        "surface-container-lowest": "#0c0b21",
+                        "on-tertiary-fixed-variant": "#45464e",
+                        "on-primary-container": "#fff6f5",
+                        "secondary": "#c5c3ea",
+                        "tertiary-fixed-dim": "#c6c6cf",
+                        "tertiary": "#c6c6cf",
+                        "on-secondary-container": "#b4b1d7",
+                        "surface-container-low": "#1a1930",
+                        "surface-tint": "#ffb4a8",
+                        "surface-container": "#1e1d34",
+                        "on-error": "#690005",
+                        "on-background": "#e3dffe",
+                        "on-tertiary": "#2f3037",
+                        "surface-container-high": "#29283f",
+                        "primary": "#ffb4a8",
+                        "inverse-on-surface": "#2f2e46",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "tertiary-container": "#71717a",
+                        "on-secondary-fixed": "#191836",
+                        "secondary-fixed": "#e3dfff",
+                        "on-secondary": "#2e2d4c",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#33324a",
+                        "surface-dim": "#121127",
+                        "primary-fixed": "#ffdad4",
+                        "on-secondary-fixed-variant": "#454364",
+                        "on-tertiary-container": "#f9f7ff",
+                        "inverse-primary": "#c00200",
+                        "on-primary": "#680100",
+                        "outline": "#af8781",
+                        "background": "#121127",
+                        "on-primary-fixed": "#410000",
+                        "surface-variant": "#33324a",
+                        "surface": "#121127",
+                        "secondary-container": "#454364",
+                        "on-primary-fixed-variant": "#930200",
+                        "primary-container": "#e50501",
+                        "on-surface-variant": "#e9bcb5",
+                        "secondary-fixed-dim": "#c5c3ea",
+                        "surface-bright": "#38374f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(18, 17, 39, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(45deg, #E50501 0%, #930200 100%);
+        }
+        .ghost-border {
+            border: 1px solid rgba(95, 63, 58, 0.15);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #121127; }
+        ::-webkit-scrollbar-thumb { background: #E50501; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 rounded-none glass-header flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+<h1 class="text-2xl font-black italic tracking-tighter text-[#E50501] font-headline uppercase">RIVAL</h1>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#c5c3ea] font-headline uppercase tracking-widest text-sm hover:text-[#E50501] transition-colors" href="{{DATA:SCREEN:home_proto}}">Home</a>
+<a class="text-[#c5c3ea] font-headline uppercase tracking-widest text-sm hover:text-[#E50501] transition-colors" href="{{DATA:SCREEN:challenger_proto}}">Training</a>
+<a class="text-[#E50501] font-headline uppercase tracking-widest text-sm italic font-bold" href="#">Feed</a>
+<a class="text-[#c5c3ea] font-headline uppercase tracking-widest text-sm hover:text-[#E50501] transition-colors" href="{{DATA:SCREEN:leaderboard_proto}}">Leaderboard</a>
+</div>
+<div class="w-10 h-10 bg-surface-container-highest border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a confident athletic man with short hair in a dark studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD6EkM7dJPHU2dPu-v9-Zd025S2Et5gF7SVjRj_81s34vH-DAogsztzP7WX8URQzxX_xELPClkO85J7L4AXHJ7WgaOKsm9ihwFrKph_Iq9IkXMqzYREOzqAkgxtjTCO-4CY8m0nWl-IPtfTrqqzLrpbZxGiAs7cEVY-f4xsISVIFq5Ik9yY0a4Uv_DFzvrkuyN2BIlALr-YsqBswqflElGMfbdYaoUQ5un9vA3H5UFLL4oioEOKBPnS1sQJEyrc3tgMA7WTUk2OnM"/>
+</div>
+</header>
+<main class="pt-24 pb-24 px-4 md:px-12 max-w-7xl mx-auto">
+<!-- Feed Headline -->
+<div class="mb-12 border-l-4 border-primary-container pl-6">
+<h2 class="text-5xl md:text-7xl font-black font-headline uppercase tracking-tighter leading-none italic">
+                The <span class="text-primary-container">Pulse</span>
+</h2>
+<p class="text-secondary font-label uppercase tracking-widest text-xs mt-2">Real-time performance broadcast</p>
+</div>
+<!-- Bento Grid Feed -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Highlight Post: Video/Cinematic -->
+<div class="md:col-span-8 bg-surface-container overflow-hidden group relative">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Intense high-contrast black and white photo of a weightlifter performing a heavy clean and jerk in a gritty warehouse gym" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1CPTJL5sqOfvFouXLdGuWIXGJqaRBZdY9fY7YiyJIBJk9Y4Ah4ExRbZdr-oxmwpv5RLYIke7O0AtCkgV0Jgh9qAQTv1SlqdYCkA2yDh0QOZanpPJich7a1dLx_NsYSl9xfUtjEFErYLxm_mUpkDhW-zSEXjcvv-CTirEYsBDTPV9eZUHKqDWBtE2itV1q5XhJ9S1cY_aSajelUl89Shqfi3GDKqZQV2Nnldu8hIW6ms2rXFqA-iBh9f9F9fugEEqDZ0BiHHprDXE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute top-4 right-4 kinetic-gradient px-3 py-1 text-[10px] font-bold font-headline uppercase tracking-tighter italic">Live PR</div>
+</div>
+<div class="p-8">
+<div class="flex items-start justify-between mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Sporty young woman with a high ponytail and athletic wear looking determined" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN5eJpaISIJYOsY9ZhXm0ZMR9PT3wqopqm7RAiV0pUl_VaT1-1AQK9O4sq5Scckt-xKNqUkzNMYd1CQ-0jabJ6KUK0UThEMrsMZe0pPTwufxVkhxe89599UuXLWUyLbsj-6a8Z81ouXn8hXyu7DxsiHbrqKfc4S0VdefhwOrnEZpQW0novUfIaaNYM1esOJEmW7UafRz6dij_fxXxbzQR8sOcCsJx-54u1LRDiMk0O2Lp8KPqI7zhrSHMOEr4VU_Uvb35TnkFnjxA"/>
+</div>
+<div>
+<h4 class="font-headline font-bold uppercase tracking-tight text-lg">Sarah "Titan" Vance</h4>
+<p class="text-secondary text-xs uppercase tracking-widest">2 minutes ago • Olympic Lifting</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-3xl font-black font-headline text-primary-container leading-none italic">225LB</span>
+<p class="text-secondary text-[10px] uppercase font-bold">New Record</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-8 font-light italic">"The plateau was only a mental construct. Today we shattered the ceiling. Focus on the geometry of the lift."</p>
+<div class="flex gap-4 border-t border-outline-variant/10 pt-6">
+<button class="flex items-center gap-2 text-primary-container hover:bg-primary-container/10 px-4 py-2 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="text-xs font-bold uppercase tracking-widest">Ignite (128)</span>
+</button>
+<button class="flex items-center gap-2 text-secondary hover:bg-surface-container-highest px-4 py-2 transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-xs font-bold uppercase tracking-widest">Strategize (14)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Side Metric Column -->
+<div class="md:col-span-4 space-y-6">
+<!-- Mini Metric Card -->
+<div class="bg-surface-container-low p-6 ghost-border relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl">trending_up</span>
+</div>
+<h5 class="text-xs font-bold uppercase tracking-[0.2em] text-secondary mb-4">Daily Global Average</h5>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-sm font-headline uppercase text-on-surface-variant">Intensity Score</span>
+<span class="text-2xl font-black font-headline italic">88.4</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full overflow-hidden">
+<div class="h-full kinetic-gradient w-[88.4%]"></div>
+</div>
+</div>
+</div>
+<!-- Trending Topics -->
+<div class="bg-surface-container-highest p-6">
+<h5 class="text-xs font-bold uppercase tracking-[0.2em] text-primary-container mb-6">Trending Rivals</h5>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="text-xs font-headline font-black italic text-outline-variant">01</div>
+<div class="flex-1">
+<p class="text-sm font-bold uppercase tracking-tight">#EngineRoomProject</p>
+<p class="text-[10px] text-secondary uppercase">2.4k Athletes Tracking</p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-sm">trending_up</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-xs font-headline font-black italic text-outline-variant">02</div>
+<div class="flex-1">
+<p class="text-sm font-bold uppercase tracking-tight">#GeometricGains</p>
+<p class="text-[10px] text-secondary uppercase">1.1k Athletes Tracking</p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-sm">trending_up</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Row: Small Cards -->
+<div class="md:col-span-4 bg-surface-container p-6 relative group">
+<div class="flex justify-between items-start mb-8">
+<div class="w-10 h-10 bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Young man with glasses and short beard looking focused" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyVJ3vEsOTqri07QjG1FhXTKKPaHVy--MWu5YvNYjhraWLZUq3wMdmYF2V2m6vBy7TlNI27-Jp8b0dlzLirjKu1rYvoF3006H49nLlqADE_PGce3fNyBw7Q9D5lbb2_BEJ9-nG1IS06J6sGkH5YjWKWIb8PJZ0t-95n8oY-ywLz04h4USJRVJjomIvKGOql6JcPTn-FU3b-tTeL3scG2ZSmbgCVxQzivE7969D3iEuWcT9zu1KiVlqh4pZfjIAnlDth6Wkx2Zk_38"/>
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">15m ago</span>
+</div>
+<h4 class="font-headline font-bold uppercase tracking-tighter text-xl mb-2">Erik Storm</h4>
+<p class="text-sm text-on-surface-variant mb-6 leading-snug italic">Completed "The Anvil" workout. 40 minutes of pure anaerobic threshold work.</p>
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-surface-container-lowest p-3 border-l-2 border-primary-container">
+<p class="text-[9px] uppercase font-bold text-secondary">Calories</p>
+<p class="text-lg font-headline font-black italic">640</p>
+</div>
+<div class="bg-surface-container-lowest p-3 border-l-2 border-secondary">
+<p class="text-[9px] uppercase font-bold text-secondary">Avg HR</p>
+<p class="text-lg font-headline font-black italic">164</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container p-6 relative group">
+<div class="flex justify-between items-start mb-8">
+<div class="w-10 h-10 bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Athletic woman with curly hair and headband" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChO3nBqPSNj-q86ItaBMBCKZ7RL8k-N-DN5wakRCyzswez-dBrQDhd4IkCfMqWOGVolIZLR8Th2gTXmx1HtfTlGAUKV7mDGrimNcDehTERWIs8m8-bv_YNKqfwLr9iB-DCs43oniUiYxFExTjbLlvqQg4jzRh7wuZ7C3LtHUG8D6LPpqqVVI5ZNhA91L_vMQbNe1jvLynpSj546yT4R2wX9KbwcAoAoOAaDvPBjS6bzNo9oYH48Y48RGHmH4t1ESaZ-DGzrvvPHB0"/>
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">42m ago</span>
+</div>
+<h4 class="font-headline font-bold uppercase tracking-tighter text-xl mb-2">Maya Chen</h4>
+<p class="text-sm text-on-surface-variant mb-6 leading-snug italic">Visualizing the next phase. Recovery session in the kinetic zone.</p>
+<div class="aspect-square bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500" data-alt="High quality overhead view of a yoga mat, foam roller, and water bottle on a dark geometric floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg0CSaBJGuwSPbeP6CyxB7PEt6K2wmuKdjb_blcjzsjbmqsKinNrQB3ntqcyq3yi_uGLuBfoNCVz9XNEq7vqR_hCVFn-LSiVT7oAbLTSjtXt8IswAxX7DbZK6PhBiPCT71s_imN5XpiYCJ0DxZjCxmFQqj6dvStcZYghKYqLIMCDO3P9Ev4ZibLjLTD4-ZQAElI1KvalGRN4Ej2vvtLkFwCBasLopuvFUQ2GvyZ1VVHQ7RvmQvz6cmxIPv1ecSM6TsC-7n6eCwDk0"/>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary-container/10 p-6 border-l-4 border-primary-container flex flex-col justify-between">
+<div>
+<h5 class="text-xs font-bold uppercase tracking-[0.2em] text-primary-container mb-4">RIVAL ADVISORY</h5>
+<p class="font-headline font-bold text-2xl uppercase italic tracking-tighter leading-none mb-4">The Winter Open Registration Is Live.</p>
+<p class="text-sm text-on-surface-variant font-light">Join the top 1% in the ultimate seasonal performance test. Sharp edges only.</p>
+</div>
+<button class="mt-8 kinetic-gradient text-white py-4 px-6 font-headline font-black uppercase italic tracking-widest text-sm hover:scale-[1.02] active:scale-95 transition-all">
+                    Register Now
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-stretch h-16 bg-[#121127]/70 backdrop-blur-md z-50 shadow-[0_-4px_40px_rgba(13,12,34,0.08)]">
+<a class="flex items-center justify-center text-[#c5c3ea] p-4 active:scale-90 transition-transform duration-200" href="{{DATA:SCREEN:home_proto}}">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="flex items-center justify-center text-[#c5c3ea] p-4 active:scale-90 transition-transform duration-200" href="{{DATA:SCREEN:challenger_proto}}">
+<span class="material-symbols-outlined">fitness_center</span>
+</a>
+<a class="flex items-center justify-center bg-gradient-to-br from-[#E50501] to-[#930200] text-white p-4 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dynamic_feed</span>
+</a>
+<a class="flex items-center justify-center text-[#c5c3ea] p-4 active:scale-90 transition-transform duration-200" href="{{DATA:SCREEN:leaderboard_proto}}">
+<span class="material-symbols-outlined">leaderboard</span>
+</a>
+<a class="flex items-center justify-center text-[#c5c3ea] p-4 active:scale-90 transition-transform duration-200" href="{{DATA:SCREEN:profile_proto}}">
+<span class="material-symbols-outlined">person</span>
+</a>
+</nav>
+<!-- FAB for New Post (Contextual Only for Feed) -->
+<button class="fixed right-6 bottom-24 md:bottom-12 w-16 h-16 kinetic-gradient text-white flex items-center justify-center shadow-2xl active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>
