@@ -12,13 +12,13 @@ model AppUser {
   name               String
   age                Int
   gender             String
-  weightKg           Decimal              @db.Decimal(6, 2)
-  heightCm           Decimal              @db.Decimal(6, 2)
-  experienceLevel    String
-  trainingTrack      String
-  readinessScore     Int
-  primaryGoal        String
-  availableEquipment Json                 @default("[]")
+  weightKg           Decimal              @db.Decimal(6, 2) @map("weight_kg")
+  heightCm           Decimal              @db.Decimal(6, 2) @map("height_cm")
+  experienceLevel    String               @map("experience_level")
+  trainingTrack      String               @map("training_track")
+  readinessScore     Int                  @map("readiness_score")
+  primaryGoal        String               @map("primary_goal")
+  availableEquipment Json                 @default("[]") @map("available_equipment")
   constraints        Json                 @default("[]")
   assessments        BaselineAssessment[]
   workoutPlans       WorkoutPlan[]
